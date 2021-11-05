@@ -13,7 +13,12 @@ export const Nav = styled.nav`
   /* 3rd Nav */
   justify-content: flex-start;
   // position: fixed;
-  overflow: hidden;
+  // overflow: hidden;
+
+  // @media screen and (max-width: 768px) {
+  //   position: relative;
+  //   justify-content: flex-start;
+  // }
 `;
 
 export const NavLink = styled(Link)`

@@ -1,79 +1,71 @@
 import React from "react";
+import styled from "styled-components";
+import Header from "../../Header";
 
+import Package from "../../Package";
 import "./style.css";
-const cnst_bg = require("../../../assets/cnst_bg6.jpg").default;
+const cnst_bg = require("../../../assets/cnst_bg7.jpeg").default;
+
+const Div = styled.div`
+  text-align: center;
+  margin-top: 40px;
+
+  @media screen and (max-width: 810px) {
+    margin-top: 250px;
+  }
+`;
+
 const Construction = () => {
   return (
-    <div className="justify-content-center row">
-      {/* <div
-        className=""
-        style={{
-          position: "absolute",
-          textAlign: "center",
-          justifyContent: "center",
-          alignItems: "center",
-          color: "white",
-          fontWeight: "bold",
-          flex: 1,
-          marginTop: "10%",
-        }}
-      >
-        <div className="col">
-          <div className="col">
-            <p className="row" style={{ fontSize: 40 }}>
-              We build quality Homes
-            </p>
-
-            <p className="row" style={{ fontSize: 30 }}>
-              100% Hassle-Free and Managed by us!
-            </p>
-          </div>
+    <div className="row justify-content-center w-100" style={{ margin: 0 }}>
+      <Header
+        title="We build quality Homes"
+        text="100% Hassle-free and managed by us!"
+        bg={cnst_bg}
+      />
+      <Div>
+        <h1>Our Packages</h1>
+        <div className="row justify-content-center">
+          <Package
+            title="STANDARD"
+            area="1700/Sqft"
+            text1="Structure – branded and high quality cement, steel, concrete, bricks"
+            text2="Bare shell – W/O Interiors"
+            color="red"
+          />
+          <Package
+            title="PREMIUM"
+            area="2300/Sqft"
+            text1="Structure – branded and high quality cement, steel, concrete, bricks"
+            text2="With Interior"
+            color="blue"
+          />
+          <Package
+            title="SUPER PREMIUM"
+            area="2500/Sqft"
+            text1="Structure – branded and high quality cement, steel, concrete, bricks"
+            text2="With Interior"
+            color="green"
+          />
+          <Package
+            title="LUXURY"
+            area="2700/Sqft"
+            text1="Structure – branded and high quality cement, steel, concrete, bricks"
+            text2="With Interior"
+            color="purple"
+          />
         </div>
-        
-      </div> */}
-      <img src={cnst_bg} style={styles.image} />
-      <div
-        className=""
-        style={{
-          position: "absolute",
-          textAlign: "center",
-          justifyContent: "center",
-          alignItems: "center",
-          color: "white",
-          flex: 1,
-          marginTop: "10%",
-        }}
-      >
-        <div style={{ justifyContent: "space-around", display: "flex" }}>
-          <div>
-            <p style={{ fontSize: 45, fontWeight: "bold" }}>
-              We build quality Homes
-            </p>
-            <p style={{ fontSize: 25 }}>100% Hassle-Free and managed by us!</p>
-          </div>
-          <div
-            className="border"
-            style={{ height: 500, width: 400, backgroundColor: "white" }}
-          >
-            <input></input>
-          </div>
-        </div>
-      </div>
+      </Div>
     </div>
   );
 };
 
-const styles = {
-  p: {
-    fontSize: 25,
-    marginTop: "15%",
-    textAlign: "center",
-    maxWidth: 700,
-  },
-  image: {
-    width: "100%",
-    // height: "10",
-    // opacity: "0.5",
-  },
-};
 export default Construction;
+
+// echo "# construction" >> README.md
+// git init
+// git add README.md
+// git commit -m "first commit"
+// git branch -M main
+// git remote add origin https://github.com/karim-coder/construction.git
+// git push -u origin main

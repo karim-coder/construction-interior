@@ -13,9 +13,9 @@ const interior = require("../../../assets/interior.jpeg").default;
 
 const LandingPage = () => {
   return (
-    <div>
-      <div style={styles.bg}>
-        <div className="d-flex justify-content-center">
+    <div className="w-100" style={{ padding: 0, margin: 0 }}>
+      <div className="w-100" style={styles.bg}>
+        <div className="d-flex justify-content-center w-100">
           <p style={styles.p}>
             Top-Grade Construction, Renovation Interiors & Painting 100% hassle
             free and managed by us!
@@ -79,12 +79,22 @@ const LandingPage = () => {
         </h4>
         <div className="row justify-content-center m-5">
           <Offer
+            height={520}
+            width={520}
             icon={construction}
             title="Construction"
             link="/construction"
           />
-          <Offer icon={renovation} title="Renovation" link="/renovation" />
           <Offer
+            height={520}
+            width={520}
+            icon={renovation}
+            title="Renovation"
+            link="/renovation"
+          />
+          <Offer
+            height={520}
+            width={520}
             icon={interior}
             title="Interior Design"
             link="/interior-design"

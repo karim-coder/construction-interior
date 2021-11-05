@@ -19,8 +19,8 @@ const Image = styled.div`
   }
 `;
 const Item = styled.a`
-  max-width: 520px;
-  height: 520px;
+  width: ${(props) => props.width}px;
+  height: ${(props) => props.height}px;
   margin: 20px;
   overflow: hidden;
   position: relative;
@@ -47,42 +47,16 @@ const Text = styled.div`
 
 const Offer = (props) => {
   return (
-    // <a
-    //   className="zoom"
-    //   href={props.link}
-    //   style={{
-    //     backgroundImage: `url(${props.icon})`,
-    //     width: 550,
-    //     height: 550,
-    //     backgroundPosition: "center",
-    //     backgroundSize: "cover",
-    //     backgroundRepeat: "no-repeat",
-    //     margin: 20,
-    //     cursor: "pointer",
-    //     textDecoration: "none",
-    //   }}
-    // >
-    //   <h3
-    //     style={{
-    //       fontSize: 30,
-    //       fontWeight: "bold",
-    //       color: "white",
-    //       marginTop: 450,
-    //       textShadow: "2px 2px #000",
-    //     }}
-    //   >
-    //     {props.title}
-    //   </h3>
-    // </a>
-    <Item color={props.icon} href={props.link}>
+    <Item
+      color={props.icon}
+      href={props.link}
+      height={props.height}
+      width={props.width}
+    >
       <Image color={props.icon} />
       <Text>{props.title}</Text>
     </Item>
   );
-};
-
-const styles = {
-  image: {},
 };
 
 export default Offer;
