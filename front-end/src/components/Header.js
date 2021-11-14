@@ -1,4 +1,5 @@
-import React from "react";
+import React, { useEffect, useState } from 'react'
+import axios from 'axios'
 import styled from "styled-components";
 
 import Color from "../constants/Color";
@@ -43,7 +44,7 @@ const Input = styled.input`
   }
 `;
 
-const Form = styled.div`
+const Form = styled.form`
   height: 450px;
   max-width: 400px;
   min-width: 400px;
@@ -57,6 +58,41 @@ const Form = styled.div`
   }
 `;
 const Header = ({ title, text, bg }) => {
+  const [name, setName] = useState("")
+  const [email, setEmail] = useState("")
+  const [number, setNumber] = useState("");
+  const [city, setCity] = useState("")
+
+ 
+  // useEffect(()=>{
+  //   axios.get('http://localhost:4000/home').then(function (response) {
+  //     homeSet(response.data)
+  //   })
+  // }, [])
+
+  async function postUserInfo(e) {
+    e.preventDefault()
+    //post 
+    try{
+      await axios.post('http://localhost:3000/userinfo', {
+        name, email, number, city
+      })
+    } catch (error){
+      console.log(error) 
+    } 
+  }
+
+
+  // return (
+  //   <div className="App">
+  //     <form onSubmit={postName}>
+  //       <input type='text' value={name} onChange={(e)=> setName(e.target.value)}/>
+  //       <button type='submit'> send name </button>
+  //     </form>
+  //     {home}
+  //   </div>
+  // );
+
   return (
     <Main className="row" bg={bg}>
       <div className="col" style={{ maxWidth: "50%", minWidth: 400 }}>
@@ -79,11 +115,14 @@ const Header = ({ title, text, bg }) => {
           {text}
         </p>
       </div>
-      <Form className="col border-primary">
-        <Input placeholder="Your name" type="text" />
-        <Input placeholder="Your contact number" type="number" />
-        <Input placeholder="Your email" type="email" />
-        <Input placeholder="Your city" type="text" />
+
+      
+
+      <Form onSubmit={postUserInfo} >
+        <Input value={name} onChange={(e)=> setName(e.target.value)} placeholder='Your Name' />
+        <Input value={number} onChange={(e)=>setNumber(e.target.value)} placeholder="Your contact number" type="number" />
+        <Input value={email} onChange={(e)=>setEmail(e.target.value)} placeholder="Your email" type="email" />
+        <Input value={city} onChange={(e)=>setCity(e.target.value)} placeholder="Your city" type="text" />
         <button
           style={{ flex: 1, margin: 20 }}
           type="submit"

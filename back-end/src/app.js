@@ -11,7 +11,7 @@ const path = require('path')
  app.use(express.json());
  app.use(userRout)
 
- const port = process.env.PORT | 3001
+ const port = process.env.PORT | 3000
 
 
 console.log(path.join(__dirname))

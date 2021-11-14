@@ -25,7 +25,7 @@ import Navbar from "./components/Navbar";
 function App() {
   const [home, setHome] = useState("")
   useEffect(()=>{
-          axios.get('http://localhost:3001/home').then(function (response) {
+          axios.get('http://localhost:3000/home').then(function (response) {
             setHome(response.data )
           })
         }, [])
@@ -38,7 +38,7 @@ function App() {
       
       <ScrollToTop />
       <Navbar />
-      {home}
+      {/* {home} */}
       
       <Switch>
         
