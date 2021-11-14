@@ -1,7 +1,7 @@
 import React, { useState, Component } from "react";
 import styled from "styled-components";
 
-import Button, { Btn } from "../../Button";
+import { Btn } from "../../Button";
 import Color from "../../../constants/Color";
 
 import "./style.css";
@@ -23,13 +23,28 @@ export class ConstCostEstimator extends React.Component {
     this.state = {
       size: "Plot Size",
     };
+    this.state = {
+      cost: 0,
+    };
+    this.state = {
+      inputError: false,
+    };
+    this.state = {
+      selectValue: "",
+    };
+
+    this.handleDropdownChange = this.handleDropdownChange.bind(this);
 
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
   }
-  toggleChange = () => {
+  handleDropdownChange(e) {
+    this.setState({ selectValue: e.target.value });
+  }
+  toggleChange = (event) => {
     this.setState({
       isChecked: !this.state.isChecked,
+      carParking: event.target.value,
     });
   };
   handleChange(event) {
@@ -40,9 +55,24 @@ export class ConstCostEstimator extends React.Component {
 
   handleSubmit(event) {
     event.preventDefault();
-
-    alert(`You chose the ${this.state.size} pizza.`);
   }
+  inputHandler = (event) => {
+    if (!event.target.value) {
+      this.setState({
+        inputError: true,
+      });
+    }
+    this.setState({
+      cost: event.target.value,
+    });
+
+    {
+      event.target.value > 0 &&
+        this.setState({
+          inputError: false,
+        });
+    }
+  };
 
   render() {
     return (
@@ -117,6 +147,7 @@ export class ConstCostEstimator extends React.Component {
                   <input
                     type="number"
                     min="1"
+                    onChange={this.inputHandler}
                     style={{
                       width: 110,
                       marginLeft: 15,
@@ -154,9 +185,9 @@ export class ConstCostEstimator extends React.Component {
                   onChange={this.toggleChange}
                 />
                 <label style={{ margin: 5 }}>Car Parking</label>
-                {console.log(this.state.isChecked)}
                 {this.state.isChecked && (
                   <select
+                    onChange={this.handleDropdownChange}
                     style={{
                       width: 80,
                       marginLeft: 10,
@@ -171,11 +202,12 @@ export class ConstCostEstimator extends React.Component {
                     <option value="3">3</option>
                   </select>
                 )}
+                {console.log(this.state.selectValue)}
               </div>
             </div>
           </div>
           {/* <Button text="Estimate" color={Color.primary} type={true} /> */}
-          <Btn>Estimator</Btn>
+          <Btn>Estimate</Btn>
         </div>
         <div
           className="row"
@@ -185,7 +217,7 @@ export class ConstCostEstimator extends React.Component {
             backgroundColor: "#F8F8F6",
           }}
         >
-          <CostEstimate />
+          <CostEstimate cost={this.state.cost} />
           <CostEstimate />
           <CostEstimate />
           <CostEstimate />
@@ -195,12 +227,16 @@ export class ConstCostEstimator extends React.Component {
   }
 }
 
-const CostEstimate = () => {
+const CostEstimate = (props) => {
   return (
     <div style={{ width: 400, margin: 10, borderRadius: 5, marginTop: 30 }}>
       <div style={{ backgroundColor: "red", borderRadius: 5 }}>
         <p>Standard</p>
         <p>1700/ Sqft</p>
+      </div>
+      <div>
+        <p>Ground Floor {((props.cost * 75) / 100) * 1700}</p>
+        <p>Total buildup({(props.cost * 75) / 100})</p>
       </div>
     </div>
   );
