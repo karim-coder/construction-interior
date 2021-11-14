@@ -18,7 +18,7 @@ router.post('/userinfo', async(req, res)=>{
 })
 
 router.get('/data', (req, res)=>{
-    res.send('hello dear welcome to the data pages')
+    res.send('hello dear welcome to the data pages and will be in contact soon')
 })
 
 module.exports = router
