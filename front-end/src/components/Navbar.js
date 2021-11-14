@@ -78,7 +78,7 @@ const NavBar = () => {
   const Gallery = () => {
     setConst(false);
     setHome(false);
-    // setInterior(true);
+    setInterior(false);
     setGallery(true);
     setRenovation(false);
     setAbout(false);
@@ -130,7 +130,7 @@ const NavBar = () => {
                 to="/interior-design"
                 onMouseOver={MouseOver}
                 onMouseOut={MouseOut}
-                onClick={Interior || Gallery}
+                onClick={Interior}
                 decoration={interior ? "underline" : "none"}
               >
                 <h5 style={{ marginRight: 20, marginLeft: 20 }}>
@@ -158,6 +158,17 @@ const NavBar = () => {
                 decoration={about ? "underline" : "none"}
               >
                 <h5 style={{ marginRight: 20, marginLeft: 20 }}>About us</h5>
+              </NavLink>
+            </li>
+            <li className="nav-item">
+              <NavLink
+                to="/interior-design/gallery"
+                onMouseOver={MouseOver}
+                onMouseOut={MouseOut}
+                onClick={About}
+                decoration={gallery ? "underline" : "none"}
+              >
+                {/* <h5 style={{ marginRight: 20, marginLeft: 20 }}>Gallery</h5> */}
               </NavLink>
             </li>
           </ul>

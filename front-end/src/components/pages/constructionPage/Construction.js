@@ -1,23 +1,14 @@
 import React from "react";
-import styled from "styled-components";
 import Header from "../../Header";
 
 import Package from "../../Package";
+import { Div, ConstCostEstimator } from "./ConstructionElements";
 import "./style.css";
-const cnst_bg = require("../../../assets/cnst_bg7.jpeg").default;
-
-const Div = styled.div`
-  text-align: center;
-  margin-top: 40px;
-
-  @media screen and (max-width: 810px) {
-    margin-top: 250px;
-  }
-`;
+const cnst_bg = require("../../../assets/cnst_bg.jpg").default;
 
 const Construction = () => {
   return (
-    <div className="row justify-content-center w-100" style={{ margin: 0 }}>
+    <div className="row justify-content-center " style={{ margin: 0 }}>
       <Header
         title="We build quality Homes"
         text="100% Hassle-free and managed by us!"
@@ -54,6 +45,9 @@ const Construction = () => {
             text2="With Interior"
             color="purple"
           />
+        </div>
+        <div className="row" style={{ justifyContent: "center" }}>
+          <ConstCostEstimator />
         </div>
       </Div>
     </div>

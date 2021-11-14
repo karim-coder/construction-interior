@@ -2,6 +2,8 @@ import React from "react";
 
 import Promise from "../../Promise";
 import Offer from "../../Offer";
+import Color from "../../../constants/Color";
+
 const quality = require("../../../assets/quality.png").default;
 const warranty = require("../../../assets/warranty.png").default;
 const hassle = require("../../../assets/hassle.png").default;
@@ -114,13 +116,13 @@ const styles = {
     width: "100vw",
     height: "80vh",
     textAlign: "center",
+    opacity: 0.9,
   },
   p: {
-    fontSize: 25,
-    marginTop: "15%",
-    textAlign: "center",
+    fontSize: 35,
     fontWeight: "bold",
-    maxWidth: 700,
+    marginTop: "10%",
+    maxWidth: 1000,
   },
 };
 export default LandingPage;

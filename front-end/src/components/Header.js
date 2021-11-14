@@ -65,7 +65,7 @@ const Header = ({ title, text, bg }) => {
             fontSize: 45,
             fontWeight: "bold",
             marginTop: "10%",
-            textShadow: `3px 3px 3px ${Color.primary}`,
+            textShadow: `4px 4px 4px black`,
           }}
         >
           {title}

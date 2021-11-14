@@ -13,7 +13,10 @@ import Construction from "./components/pages/constructionPage/Construction";
 import Interior from "./components/pages/interiorPage/Interior";
 import Renovation from "./components/pages/renovationPage/Renovation";
 import About from "./components/pages/aboutPage/About";
-import Gallery from "./components/pages/gallery/gallery";
+import Gallery from "./components/pages/gallery/Gallery";
+
+// Footer
+import Footer from "./components/Footer";
 
 // import SignIn from "./components/pages/signupPage/signIn";
 // import SignUp from "./components/pages/signupPage/signUp";
@@ -36,6 +39,7 @@ function App() {
         {/* <Route exact path="/" exact component={SignIn} />
         <Route exact path="/" exact component={SignUp} /> */}
       </Switch>
+      <Footer />
     </Router>
   );
 }
