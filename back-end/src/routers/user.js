@@ -17,8 +17,13 @@ router.post('/userinfo', async(req, res)=>{
     }
 })
 
-router.get('/data', (req, res)=>{
-    res.send('hello dear welcome to the data pages and will be in contact soon')
+router.get('/data', async (req, res)=>{
+    try{
+        const user = await User.find({})
+        res.send(user)
+    } catch(e){
+        res.send(e)
+    }
 })
 
 module.exports = router
